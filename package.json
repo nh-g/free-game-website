@@ -1,0 +1,8 @@
+{
+  "name": "free-game-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nh-g/free-game-website.git",
+  "author": "nh-g <giangngohong@gmail.com>",
+  "license": "MIT"
+}
