@@ -4,6 +4,7 @@ import React from 'react'
 // Project files
 import { Item } from 'types'
 import ItemCard from 'components/ItemCard'
+import { List, ListItem } from './styles'
 
 interface iProps {
 	error?: string
@@ -18,12 +19,14 @@ export default function ListRender({ error, items }: iProps) {
 		return <p>No item to show now. More are coming soon</p>
 	}
 	return (
-		<ul>
-			{items.map(item => (
-				<li key={item.id}>
-					<ItemCard content={item} />
-				</li>
-			))}
-		</ul>
+		<>
+			<List>
+				{items.map(item => (
+					<ListItem key={item.id}>
+						<ItemCard content={item} />
+					</ListItem>
+				))}
+			</List>
+		</>
 	)
 }
