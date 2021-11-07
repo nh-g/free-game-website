@@ -1,9 +1,8 @@
 // NPM Packages
-import React, { ChangeEvent, ReactElement, useCallback, useState } from 'react'
+import React, { ChangeEvent, useCallback, useState } from 'react'
 
 // Project files
 import useFetch from 'hooks/useFetch'
-// import { Item } from 'types'
 import ListRender from './ListRender'
 import { Filter } from './types'
 

@@ -1,4 +1,7 @@
+// NPM packages
 import React, { ChangeEvent } from 'react'
+
+// Project files
 import { PLATFORMS, GENRES, TAGS, SORT_BY } from './fileds'
 import SelectFields from './SelectFields'
 import { Form } from './styles'
