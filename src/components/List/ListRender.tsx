@@ -15,7 +15,7 @@ interface iProps {
 
 export default function ListRender({ error, items, onFilterChange }: iProps) {
 	if (error) {
-		return <p>{error} No games available</p>
+		return <p>Unable to fetch games</p>
 	}
 	if (!items?.length) {
 		return <p>No item to show now. More are coming soon</p>
