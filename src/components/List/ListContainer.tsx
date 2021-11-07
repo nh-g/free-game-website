@@ -1,31 +1,29 @@
 // NPM Packages
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { ChangeEvent, ReactElement, useCallback, useState } from 'react'
 
 // Project files
-import { Item } from 'types'
+import useFetch from 'hooks/useFetch'
+// import { Item } from 'types'
 import ListRender from './ListRender'
-import { API_HOST, API_KEY } from './API_KEY'
+import { Filter } from './types'
 
 export default function ListContainer() {
-	const [items, setItems] = useState<Item[]>([])
-	const [error, setError] = useState<string>('')
+	const [filter, setFilter] = useState<Filter>({
+		platform: 'browser',
+		sortBy: 'relevance',
+	})
 
-	useEffect(() => {
-		axios
-			.get('/games', {
-				baseURL: `https://${API_HOST}/api`,
-				headers: {
-					'x-rapidapi-key': API_KEY,
-					'x-rapidapi-host': API_HOST,
-				},
-				params: {
-					platform: 'browser',
-				},
-			})
-			.then(res => setItems(res.data))
-			.catch(e => setError(e.message))
+	const { items, error } = useFetch(filter)
+
+	const onFilterChange = useCallback((event: ChangeEvent<HTMLFormElement>) => {
+		setFilter(current => ({
+			...current,
+			[event.target.name]: event.target.value,
+		}))
+		event.preventDefault()
 	}, [])
 
-	return <ListRender error={error} items={items} />
+	return (
+		<ListRender error={error} items={items} onFilterChange={onFilterChange} />
+	)
 }

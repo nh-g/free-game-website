@@ -8,13 +8,18 @@ interface iFieldData {
 interface iProps {
 	labelName: string
 	fieldData: Array<iFieldData>
+	fieldSelect: string
 }
 
-export default function SelectFields({ labelName, fieldData }: iProps) {
+export default function SelectFields({
+	labelName,
+	fieldData,
+	fieldSelect,
+}: iProps) {
 	return (
-		<Label htmlFor="platform-select">
+		<Label htmlFor={fieldSelect}>
 			{labelName.charAt(0).toUpperCase() + labelName.slice(1)}:
-			<Select name={labelName} id="platform-select">
+			<Select name={labelName} id={fieldSelect}>
 				{fieldData.map(item => (
 					<option key={item.value} value={item.value}>
 						{item.display}

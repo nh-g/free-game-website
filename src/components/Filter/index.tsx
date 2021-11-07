@@ -9,11 +9,23 @@ interface iProps {
 
 export default function Filter({ onChange }: iProps) {
 	return (
-		<Form>
-			<SelectFields labelName="platform" fieldData={PLATFORMS} />
-			<SelectFields labelName="genre" fieldData={GENRES} />
-			<SelectFields labelName="tag" fieldData={TAGS} />
-			<SelectFields labelName="sort-by" fieldData={SORT_BY} />
+		<Form onChange={onChange}>
+			<SelectFields
+				labelName="platform"
+				fieldData={PLATFORMS}
+				fieldSelect="platform-select"
+			/>
+			<SelectFields
+				labelName="genre"
+				fieldData={GENRES}
+				fieldSelect="genre-select"
+			/>
+			<SelectFields labelName="tag" fieldData={TAGS} fieldSelect="tag-select" />
+			<SelectFields
+				labelName="sortBy"
+				fieldData={SORT_BY}
+				fieldSelect="sortBy-select"
+			/>
 		</Form>
 	)
 }
