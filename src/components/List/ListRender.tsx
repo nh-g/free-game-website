@@ -5,7 +5,7 @@ import React from 'react'
 import { Item } from 'types'
 import ItemCard from 'components/ItemCard'
 import { List, ListItem } from './styles'
-
+import Filter from 'components/Filter'
 interface iProps {
 	error?: string
 	items: Item[]
@@ -20,6 +20,7 @@ export default function ListRender({ error, items }: iProps) {
 	}
 	return (
 		<>
+			<Filter />
 			<List>
 				{items.map(item => (
 					<ListItem key={item.id}>
