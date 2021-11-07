@@ -1,9 +1,14 @@
 // NPM packages
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 // Project files
 import ItemList from 'components/List'
+import withErrorBoundary from 'hoc/withErrorBoundary'
 
-export default function Home() {
-	return <ItemList />
-}
+const Home = (): ReactElement => (
+	<main>
+		<ItemList />
+	</main>
+)
+
+export default withErrorBoundary(Home)
